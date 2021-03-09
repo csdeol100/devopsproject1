@@ -45,6 +45,8 @@ pipeline{
                 sshagent(['awsagent']) {
                  sh 'ssh -o StrictHostKeyChecking=no -l ubuntu  204.236.201.142 uname -a \
                      docker container run -idt -p 8080:8080 csdeol100/proj1'
+                sh 'ssh -v ubuntu@204.236.201.142'
+
                 }
             }
         }
