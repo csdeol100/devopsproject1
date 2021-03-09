@@ -14,7 +14,7 @@ pipeline{
         }
         stage('Build FrontEnd'){
             steps{
-                sh './mnw'
+                sh './mvnw'
                 sh 'npm install'
                 sh 'npm build'
             }
