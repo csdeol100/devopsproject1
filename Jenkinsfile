@@ -23,7 +23,7 @@ pipeline{
         stage('Build BackEnd'){
             steps{
                 sh 'mvn package'
-                archiveArtifacts artifacts: 'target/*.war', followSymlinks: false
+                archiveArtifacts artifacts: 'target/*.jar', followSymlinks: false
             }
             
         }
