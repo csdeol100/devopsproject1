@@ -27,6 +27,19 @@ pipeline{
             }
             
         }
+         stage('Build Image') {
+            steps {
+                sh "docker image build . -t csdeol100/proj1"
+            }
+        }
+        stage('Publish Image') {
+            steps {
+                withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'DOCKER_PASS', usernameVariable: 'DOCKER_USER')]) {
+                  sh "docker login -u ${DOCKER_USER} -p ${DOCKER_PASS}"
+                  sh "docker image push csdeol100/proj1"
+                }
+            }
+        }
 
     }
 }
