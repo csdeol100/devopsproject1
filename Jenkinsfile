@@ -43,8 +43,9 @@ pipeline{
         stage('Deploy on AWS'){
             steps{
                 sshagent(['awsagent']) {
-                    sh 'ssh -o StrictHostKeyChecking=no -l ubuntu  204.236.201.142 uname -a ls'
-                    sh 'ssh -v ubuntu@204.236.201.142'
+                    sh “ssh -o StrictHostKeyChecking=no -l ubuntu 204.236.201.142 uname -a”
+                    sh “ssh -v ubuntu@204.236.201.142 docker container run -idt -p 8080:8080 csdeol100/proj1”
+                  
 
                 }
             }
